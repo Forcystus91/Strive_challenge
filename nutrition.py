@@ -52,7 +52,7 @@ labels = ["Healthy", "Obese", "Overweight", "Underweight"]
 fig1, ax1 = plt.subplots()
 ax1.pie(status_value_list, labels=labels, autopct='%1.1f%%')
 ax1.axis('equal')
-st.write('Weight Status of members')
+st.markdown('Weight Status of members')
 st.pyplot(fig1)
 
 
@@ -73,12 +73,28 @@ st.write('Female Weight Status')
 st.pyplot(fig2)
 
 
+#male dist graph
+fig9 = plt.figure()
+plt.legend(loc='lower right')
+sns.distplot(data_male["BMI"])
+st.write('Male BMI Distribution')
+st.pyplot(fig9)
+
+#female dist graph
+fig10 = plt.figure()
+plt.legend(loc='lower right')
+sns.distplot(data_female["BMI"])
+st.write('Female BMI distribution')
+st.pyplot(fig10)
+
+
 #scatter plot
 healthy_ppl = data_male.loc[data_male["Weight Status"] == "Healthy"]
 obese_ppl = data_male.loc[data_male["Weight Status"] == "Obese"]
 fig3 = plt.figure()
 sns.scatterplot(x="Height",y="Weight",data=data_male,size="BMI")
 plt.legend(loc='lower right')
+st.write('All BMIs distributed')
 st.pyplot(fig3)
 
 
@@ -86,6 +102,7 @@ st.pyplot(fig3)
 fig4 = plt.figure()
 sns.scatterplot(x="Height",y="Weight",data=obese_ppl,size="BMI")
 plt.legend(loc='lower right')
+st.write('Obese scatterplot')
 st.pyplot(fig4)
 
 
@@ -93,6 +110,7 @@ st.pyplot(fig4)
 fig5 = plt.figure()
 sns.scatterplot(x="Height",y="Weight",data=healthy_ppl,size="BMI")
 plt.legend(loc='lower right')
+st.write('Healthy people bmis')
 st.pyplot(fig5)
 
 
@@ -122,16 +140,7 @@ sns.scatterplot(x="Height",y="Weight",data=healthy_ppl_fem,size="BMI")
 st.pyplot(fig8)
 
 
-#male dist graph
-fig9 = plt.figure()
-plt.legend(loc='lower right')
-sns.distplot(data_male["BMI"])
-st.pyplot(fig9)
 
 
-#female dist graph
-fig10 = plt.figure()
-plt.legend(loc='lower right')
-sns.distplot(data_female["BMI"])
-st.pyplot(fig10)
+
 
