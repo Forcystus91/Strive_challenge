@@ -72,3 +72,4 @@ st.write('Female Weight Status')
 st.pyplot(fig2)
 
 
+
