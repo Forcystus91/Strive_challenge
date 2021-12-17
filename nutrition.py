@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import datasets
+import seaborn as sns
 
 st.title('Nutrition Data')
 
@@ -72,4 +73,65 @@ st.write('Female Weight Status')
 st.pyplot(fig2)
 
 
+#scatter plot
+healthy_ppl = data_male.loc[data_male["Weight Status"] == "Healthy"]
+obese_ppl = data_male.loc[data_male["Weight Status"] == "Obese"]
+fig3 = plt.figure()
+sns.scatterplot(x="Height",y="Weight",data=data_male,size="BMI")
+plt.legend(loc='lower right')
+st.pyplot(fig3)
+
+
+#scatter plot 2
+fig4 = plt.figure()
+sns.scatterplot(x="Height",y="Weight",data=obese_ppl,size="BMI")
+plt.legend(loc='lower right')
+st.pyplot(fig4)
+
+
+#scatter plot 5
+fig5 = plt.figure()
+sns.scatterplot(x="Height",y="Weight",data=healthy_ppl,size="BMI")
+plt.legend(loc='lower right')
+st.pyplot(fig5)
+
+
+
+# Female plots
+
+healthy_ppl_fem = data_female.loc[data_female["Weight Status"] == "Healthy"]
+obese_ppl_fem = data_female.loc[data_female["Weight Status"] == "Obese"]
+
+#scatter plot 6
+fig6 = plt.figure()
+plt.legend(loc='lower right')
+sns.scatterplot(x="Height",y="Weight",data=data_female,size="BMI")
+st.pyplot(fig6)
+
+
+#scatter plot 7
+fig7 = plt.figure()
+plt.legend(loc='lower right')
+sns.scatterplot(x="Height",y="Weight",data=obese_ppl_fem,size="BMI")
+st.pyplot(fig7)
+
+#scatter plot 8
+fig8 = plt.figure()
+plt.legend(loc='lower right')
+sns.scatterplot(x="Height",y="Weight",data=healthy_ppl_fem,size="BMI")
+st.pyplot(fig8)
+
+
+#male dist graph
+fig9 = plt.figure()
+plt.legend(loc='lower right')
+sns.distplot(data_male["BMI"])
+st.pyplot(fig9)
+
+
+#female dist graph
+fig10 = plt.figure()
+plt.legend(loc='lower right')
+sns.distplot(data_female["BMI"])
+st.pyplot(fig10)
 
